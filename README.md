@@ -57,3 +57,27 @@ Point any MCP client at the built entry point, for example:
 ```
 
 Logs go to stderr; stdout is reserved for the protocol.
+
+## Testing with the MCP Inspector
+
+```bash
+npm run build
+npm run inspect
+```
+
+Open the dashboard at:
+
+```
+http://127.0.0.1:6274?MCP_INSPECTOR_API_TOKEN=local123
+```
+
+then click **Connect**. The token defaults to `local123`; set your own with
+`MCP_INSPECTOR_API_TOKEN=<token> npm run inspect` and put the same value at the
+end of the link. Inspector secrets are kept in memory only.
+
+The Inspector also has a CLI mode for quick checks:
+
+```bash
+npx @modelcontextprotocol/inspector --cli node dist/index.js --method tools/list
+npx @modelcontextprotocol/inspector --cli node dist/index.js --method tools/call --tool-name echo --tool-arg message=hello
+```
