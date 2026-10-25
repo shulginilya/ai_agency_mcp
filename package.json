@@ -18,7 +18,7 @@
     "start": "node dist/index.js",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "inspect": "npx @modelcontextprotocol/inspector node dist/index.js"
+    "inspect": "MCP_INSPECTOR_API_TOKEN=${MCP_INSPECTOR_API_TOKEN:-local123} MCP_INSPECTOR_SECRET_STORE=memory npx @modelcontextprotocol/inspector node dist/index.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.2",
